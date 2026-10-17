@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#166534">
+<title>เช็กลิสต์ของสุริยา</title>
+<style>
+body {
+  font-family: sans-serif;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background: #f0fdf4;
+  color: #183323;
+}
+h1 { color: #166534; }
+input, button {
+  padding: 12px;
+  margin: 5px 0;
+  font-size: 16px;
+}
+button {
+  background: #166534;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+}
+li { padding: 8px 0; }
+</style>
+</head>
+<body>
+<h1>📋 เช็กลิสต์ของสุริยา</h1>
+<p>บันทึกงานที่ต้องทำในแต่ละวัน</p>
+<input id="task" placeholder="พิมพ์งานที่ต้องทำ">
+<button onclick="addTask()">เพิ่มงาน</button>
+<ul id="list"></ul>
+<script>
+function addTask() {
+  const input = document.getElementById("task");
+  if (!input.value.trim()) return;
+  const li = document.createElement("li");
+  const check = document.createElement("input");
+  check.type = "checkbox";
+  const text = document.createTextNode(input.value);
+  li.append(check, text);
+  document.getElementById("list").append(li);
+  input.value = "";
+}
+</script>
+</body>
+</html>
